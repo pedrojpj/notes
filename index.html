@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>Notes</title>
+		<meta name="description" content="" />
+		<meta name="author" content="vector" />
+		<meta name="viewport" content="width=device-width; initial-scale=1.0" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<link href="css/app.css" rel="stylesheet" />
+	</head>
+	<body>
+		
+		<div class="body">
+			
+			
+		</div>
+		
+	</body>
+	<script data-main="js/app" src="js/vendor/require.js"></script>	
+
+	<!-- TEMPLATES -->
+	<script type="text/handlebars" id="home">		
+		<section class="home">			
+			<header>				
+				<h1>Notes</h1>				
+			</header>			
+			<article>	
+				
+				<div class="form">	
+					<div class="icons">
+						<span class="icoOk_med buttonOK"></span>
+					</div>				
+					<textarea placeholder="Añadir una nota rápida" name="notaRapida" id="notaRapida" /></textarea>					
+					<nav>
+						<ul class="clearfix">
+							<li class="icoNew_med">Añadir nueva nota</li>
+							<li class="icoPhoto_med">Añadir nueva foto</li>
+						</ul>
+					</nav>
+					
+					<div class="colores">
+						<span class="white" title="white"></span>
+						<span class="yellow" title="yellow"></span>
+						<span class="green" title="green"></span>
+						<span class="purple" title="purple"></span>
+						<span class="red" title="red"></span>
+					</div>
+					
+				</div>
+							
+				<nav class="notesHome">
+					<ul>										
+					</ul>
+				</nav>
+			</article>			
+		</section>
+	</script>	
+	
+	<script type="text/handlebars" id="fichaNota">
+		<section class="note">			
+			<header>				
+				
+				<nav class="left">
+					<ul>
+						<li class="btnBack icoBack_med">Back</li>
+					</ul>
+				</nav>
+				
+				<nav class="right">
+					<ul>
+						<li class="btnColor icoColor_med">Color</li>
+						<li class="btnPhoto icoPhoto_med">Photo</li>
+					</ul>
+				</nav>				
+				
+							
+			</header>			
+			<article class="{{color}}">	
+				
+				{{#if titulo}}
+					<input type="text" name="titulo" id="titulo" value="{{ titulo }}" />
+				{{else}}
+					<input type="text" name="titulo" id="titulo" value="Título" />			
+				{{/if}}
+				<textarea name="text" id="text">{{texto}}</textarea>
+				
+				<p class="date">Última edición: ({{ date fecha }})</p>
+				
+			</article>			
+		</section>
+	</script>
+	
+	<script type="text/handlebars" id="templateNote">
+		{{#each this}}
+		<li>							
+			<div class="note {{color}}">				
+				<h2>{{titulo}}</h2>
+				<p>{{texto}}</p>				
+				<p class="date">{{date fecha}}</p>
+			</div>
+		</li>
+		{{/each}}
+	</script>
+	
+	
+	<!--/TEMPLATES -->
+	
+</html>
